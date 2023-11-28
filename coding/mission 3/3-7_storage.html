@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Storage</title>
+    <script>
+      function save() { // 글 입력 상자에 적힌 글('할 일')을 저장하는 함수
+        let newItem = document.getElementById("box").value;
+        localStorage.box = newItem;
+      }
+      function load() { // 빈 <div> 개체를 찾아 localStorage.box에 저장된 정보를 추가하는 함수
+        let savedDiv = document.getElementById("savedList");
+        savedDiv.innerHTML = localStorage.box;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="box" value="Type here to add task"/><br/>
+    <input type="button" id="save" value="Save" onclick="save();"/><br/>
+    <input type="button" id="load" value="Load" onclick="load();"/><br/>
+    Saved item: <div id="savedList"></div>
+  </body>
+</html>
