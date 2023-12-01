@@ -41,6 +41,7 @@
       }
       let loops = 0;
       let peopleVisible = false;
+      let gameScore = 0;
       function gameLoop() {
         peopleVisible = !peopleVisible;
         createCharacters();
@@ -50,7 +51,7 @@
           setTimeout(gameLoop, 3000);
         }
         else {
-          alert("Game over!");
+          alert("You scored " + gameScore);
         }
       }
       function flashCharacters() {
@@ -64,9 +65,15 @@
         let board = document.getElementById("board");
         for(let index = 0; index < 6; index ++) {
           board.children[index].innerHTML = "Guest"
+          board.children[index].onclick = function() {
+            gameScore += -2;
+          }
         }
         let randomNumber = Math.floor(Math.random() * 6) + 1;
         board.children[randomNumber - 1].innerHTML = "Thief";
+        board.children[randomNumber - 1].onclick = function() {
+          gameScore++;
+        }
       }
     </script>
   </body>
