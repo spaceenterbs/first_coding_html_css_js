@@ -10,7 +10,9 @@
         width: 650px;
       }
       .character {
-        background-color: lightblue;
+        /* background-color: lightblue; */
+        background: url('Guest.jpg');
+        background-size: cover;
         width: 120px;
         height: 120px;
         padding: 10px;
@@ -24,7 +26,9 @@
         display: block;
       }
       .thief {
-        background-color: red;
+        /* background-color: red; */
+        background: url('Thief.jpg');
+        background-size: cover;
       }
     </style>
   </head>
@@ -57,25 +61,25 @@
           alert("You scored " + gameScore);
         }
       }
-      function flashCharacters() {
-        let board = document.getElementById("board");
-        let classToSet = peopleVisible ? "character visible" : "character hidden";
-        for(let index = 0; index < 6; index++) {
-          board.children[index].className = classToSet;
-        }
-      }
+      // function flashCharacters() {
+      //   let board = document.getElementById("board");
+      //   let classToSet = peopleVisible ? "character visible" : "character hidden";
+      //   for(let index = 0; index < 6; index++) {
+      //     board.children[index].className = classToSet;
+      //   }
+      // }
       function createCharacters() {
         let board = document.getElementById("board");
         let classToSet = peopleVisible ? "character visible" : "character hidden"; // 'CSS 클래스로 모양 지정하는 기능' 추가
         for(let index = 0; index < 6; index ++) {
           board.children[index].className = classToSet // 'CSS 클래스로 모양 지정하는 기능' 추가
-          board.children[index].innerHTML = "Guest"
+          board.children[index].innerHTML = ""; // "Guest"
           board.children[index].onclick = function() {
             gameScore += -2;
           }
         }
         let randomNumber = Math.floor(Math.random() * 6) + 1;
-        board.children[randomNumber - 1].innerHTML = "Thief";
+        board.children[randomNumber - 1].innerHTML = ""; // "Thief";
         board.children[randomNumber - 1].onclick = function() {
           gameScore++;
         }
