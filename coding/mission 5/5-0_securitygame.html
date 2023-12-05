@@ -23,6 +23,9 @@
       .visible {
         display: block;
       }
+      .thief {
+        background-color: red;
+      }
     </style>
   </head>
   <body>
@@ -76,6 +79,7 @@
         board.children[randomNumber - 1].onclick = function() {
           gameScore++;
         }
+        board.children[randomNumber - 1].className = classToSet + " thief";
       }
     </script>
   </body>
