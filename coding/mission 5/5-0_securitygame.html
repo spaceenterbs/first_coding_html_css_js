@@ -45,7 +45,7 @@
       function gameLoop() {
         peopleVisible = !peopleVisible;
         createCharacters();
-        flashCharacters();
+        // flashCharacters(); // createCharacters()에 합쳐짐.
         loops++;
         if (loops < 12) { // 버튼을 누른 후 33초가 지나면 경고창이 뜨고 'ok'를 누르면 코드가 실행을 멈춘다.
           setTimeout(gameLoop, 3000);
@@ -63,7 +63,9 @@
       }
       function createCharacters() {
         let board = document.getElementById("board");
+        let classToSet = peopleVisible ? "character visible" : "character hidden"; // 'CSS 클래스로 모양 지정하는 기능' 추가
         for(let index = 0; index < 6; index ++) {
+          board.children[index].className = classToSet // 'CSS 클래스로 모양 지정하는 기능' 추가
           board.children[index].innerHTML = "Guest"
           board.children[index].onclick = function() {
             gameScore += -2;
